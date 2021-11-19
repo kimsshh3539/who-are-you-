@@ -20,7 +20,7 @@ async def on_message(message):
         return None
     else:
         if message.content.startswith('!전적'):
-            Name = message.content[3:len(message.content)]
+            Name = message.content.split(" ")
             #space = Name[1]
             url = 'https://www.op.gg/summoner/userName=' + Name
             SummonerName = ''
