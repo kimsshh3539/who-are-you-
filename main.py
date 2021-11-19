@@ -27,7 +27,7 @@ async def on_message(message):
             SummonerName = ''
             Tier = []
             TierUnranked = 'false'
-            LP = []
+            LP = ''
             Winsp = []
             hdr = {'Accept-Language': 'ko_KR,en;q=0.8', 'User-Agent': ('Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Mobile Safari/537.36')}
             req = requests.get(url, headers=hdr)
