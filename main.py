@@ -15,6 +15,7 @@ async def on_ready():
     print('====================================')
 
 @client.event
+@client.event
 async def on_message(message):
     if message.author.bot:
         return None
@@ -22,7 +23,7 @@ async def on_message(message):
         if message.content.startswith('!전적'):
             Name = message.content.split(" ")
             space = Name[1]
-            url = 'https://www.op.gg/summoner/userName=' + space
+            url = 'https://www.op.gg/summoner/userName=' + space[0]
             SummonerName = ''
             Tier = []
             TierUnranked = 'false'
@@ -46,13 +47,12 @@ async def on_message(message):
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
 
-@client.event
-async def on_message(message):
-    if message.author.bot:
-        return None
+
+        if message.author.bot:
+            return None
     else:
-        if message.content.startswith('!개발자'):
-            await message.channel.send('개발자 디스코드 : 정신분열자#1473')
+           if message.content.startswith('!개발자'):
+               await message.channel.send('개발자 디스코드 : 정신분열자#1473')
 
         
         
