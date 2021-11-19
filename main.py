@@ -20,9 +20,9 @@ async def on_message(message):
         return None
     else:
         if message.content.startswith('!전적'):
-            Name = message.content.split(" ")
-            space = Name[1]
-            url = 'https://www.op.gg/summoner/userName=' + space
+            Name = message.content[3:len(message.content)]
+            #space = Name[1]
+            url = 'https://www.op.gg/summoner/userName=' + Name
             SummonerName = ''
             Tier = []
             TierUnranked = 'false'
@@ -45,6 +45,15 @@ async def on_message(message):
         embed=discord.Embed(color=0xff00, title=SummonerName + '님의 전적입니다.', description='티어' + Tier + '' + '\nLP\n' + LP + '\n\n승률\n' + Winsp, timestamp=message.created_at)
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
+
+@client.event
+async def on_message(message):
+    if message.author.bot:
+        return None
+    else:
+        if message.content.startswith('!개발자'):
+            await message.channel.send('개발자 디스코드 : 정신분열자#1473')
+
         
         
 access_token = os.environ["BOT_TOKEN"] 
